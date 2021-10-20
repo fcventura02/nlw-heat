@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { AuthenticateController } from "./controllers/AuthenticateController";
 import { CreateMessageController } from "./controllers/CreateMessageController";
+import { GetLast3MessagesController } from "./controllers/GetLast3MessagesController";
 import { ensureAuthenticated } from "./middleware/ensureAuthenticated";
 
 const router = Router();
@@ -11,4 +12,5 @@ router.post(
   ensureAuthenticated,
   new CreateMessageController().handle
 );
+router.post("/messages/last3", new GetLast3MessagesController().handle);
 export { router };
