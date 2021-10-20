@@ -1,0 +1,42 @@
+.contentWrapper {
+  max-width: 1200px;
+  min-height: 100vh;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 453px;
+  column-gap: 120px;
+  position: relative;
+}
+
+.contentSeigned::before {
+  content: "";
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  max-width: 420px;
+  background: url("./assets/background.svg") no-repeat;
+  background-size: cover;
+  position: absolute;
+  right: -200px;
+  top: 0;
+  z-index: -1;
+}
+
+
+@media (max-width: 1290px) {
+  .contentWrapper {
+    width: 95%;
+  }
+}
+
+@media (max-width: 940px) {
+  .contentWrapper {
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+  }
+  .contentSeigned::before {
+    right: -200px;
+    bottom: 0;
+  }
+}

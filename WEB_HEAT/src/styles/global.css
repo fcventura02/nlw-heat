@@ -1,0 +1,27 @@
+:root {
+  --color-white: #e1e1e6;
+  --color-black: #121214;
+  --color-black-200: #17171a;
+  --color-black-300: #29292e;
+  --color-black-500: #202024;
+  --color-black-600: #1b1b1f;
+  --color-black-700: #09090a;
+  --color-yellow: #ffcd1e;
+  --color-pink: #ff008e;
+  --color-grey-100: #c4c4cc;
+  --color-grey-500: #8d8d99;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serife;
+  font-size: 10px;
+}
+
+body {
+  color: var(--color-white);
+  background-color: var(--color-black);
+  overflow-x: hidden;
+}
