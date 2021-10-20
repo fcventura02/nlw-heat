@@ -1,6 +1,10 @@
 :root {
   --color-white: #e1e1e6;
   --color-black: #121214;
+  --color-black-200: #17171a;
+  --color-black-700: #09090a;
+  --color-yellow: #ffcd1e;
+  --color-pink: #ff008e;
 }
 
 * {
@@ -8,6 +12,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: Roboto, sans-serife;
+  font-size: 10px;
 }
 
 body {
