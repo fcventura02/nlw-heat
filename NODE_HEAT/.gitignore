@@ -20,7 +20,9 @@ preinstall
 install
 
 prisma
+prisma/dev.db
 .envrc
+.env*
 test
 /prisma-client
 write-test
