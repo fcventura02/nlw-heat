@@ -1,10 +1,21 @@
-import { useContext } from "react";
+import { FormEvent, useContext, useState } from "react";
 import { VscGithubInverted, VscSignOut } from "react-icons/vsc";
 import { AuthContext } from "../../context/auth";
+import { api } from "../../service/api";
 import styles from "./styles.module.scss";
 
 export function SendMessageList() {
   const { user, signOut } = useContext(AuthContext);
+  const [message, setMessage] = useState("");
+
+  async function handleSendMessage(event: FormEvent) {
+    event.preventDefault();
+    if (!message.trim()) {
+      return;
+    }
+    await api.post("messages", { message });
+    setMessage("");
+  }
 
   return (
     <div className={styles.sendMessageFormWrapper}>
@@ -21,12 +32,14 @@ export function SendMessageList() {
           {user?.login}
         </span>
       </header>
-      <form className={styles.sendMessageForm}>
+      <form onSubmit={handleSendMessage} className={styles.sendMessageForm}>
         <label htmlFor="message">Messagem</label>
         <textarea
           name="message"
           id="message"
           placeholder="Qual sua espectativa para o evento?"
+          onChange={(event) => setMessage(event.target.value)}
+          value={message}
         />
         <button type="submit">Enviar mensssagem</button>
       </form>
