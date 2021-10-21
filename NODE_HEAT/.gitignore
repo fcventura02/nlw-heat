@@ -19,7 +19,7 @@ prisma-client
 preinstall
 install
 
-prisma
+prisma/migrations
 prisma/dev.db
 .envrc
 .env*
