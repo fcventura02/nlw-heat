@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { View, KeyboardAvoidingView, Platform } from "react-native";
 import { Header } from "../../components/Header";
 import { MessagesList } from "../../components/MessagesList";
 import { styles } from "./styles";
@@ -10,10 +10,15 @@ import { useAuth } from "../../Hooks/Auth";
 export function Home() {
   const { user } = useAuth();
   return (
-    <View style={styles.container}>
-      <Header />
-      <MessagesList />
-      {user ? <SendMessage /> : <SignInBox />}
-    </View>
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === "ios" ? "padding" : undefined}
+    >
+      <View style={styles.container}>
+        <Header />
+        <MessagesList />
+        {user ? <SendMessage /> : <SignInBox />}
+      </View>
+    </KeyboardAvoidingView>
   );
 }
