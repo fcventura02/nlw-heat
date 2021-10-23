@@ -7,6 +7,7 @@ import {
 } from "@expo-google-fonts/roboto";
 import AppLoading from "expo-app-loading";
 import { Home } from "./src/screens/Home";
+import { AuthProvider } from "./src/Hooks/Auth";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -18,8 +19,10 @@ export default function App() {
   }
   return (
     <>
-      <Home />
-      <StatusBar style="light" />
+      <AuthProvider>
+        <Home />
+      </AuthProvider>
+      <StatusBar style="light"  translucent backgroundColor="transparent"/>
     </>
   );
 }
